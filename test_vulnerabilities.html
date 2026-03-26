@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VisionGuard Test Page</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; background: #eee; }
+        .test-case { background: #fff; padding: 15px; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h1 { color: #1e293b; }
+        .danger { color: #d32f2f; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>VisionGuard Security Analysis Test Page</h1>
+    <p>Use this page to verify that VisionGuard detects various security risks.</p>
+
+    <div class="test-case">
+        <h2>1. HTTP Protocol Check</h2>
+        <p>Visit this page over <code class="danger">http://</code> to see the insecure connection warning.</p>
+    </div>
+
+    <div class="test-case">
+        <h2>2. XSS Script Detection</h2>
+        <p>This script should be flagged by VisionGuard:</p>
+        <code>&lt;script&gt;alert('XSS')&lt;/script&gt;</code>
+        <script>
+            // This is a test for VisionGuard's DOM scanner
+            // alert('XSS'); 
+        </script>
+        <script>
+            // Another variant
+            const payload = "<script>alert(1)<\/script>";
+            console.log("XSS Payload embedded in script content");
+        </script>
+    </div>
+
+    <div class="test-case">
+        <h2>3. Tracking Scripts</h2>
+        <p>The following scripts are trackers that VisionGuard should detect:</p>
+        <script src="https://www.google-analytics.com/analytics.js" async></script>
+        <script src="https://connect.facebook.net/en_US/sdk.js" async></script>
+    </div>
+
+    <div class="test-case">
+        <h2>4. Fingerprinting (Canvas)</h2>
+        <p>A canvas element is used in combination with trackers:</p>
+        <canvas id="fingerprint-test" width="200" height="40" style="border:1px solid #ccc;"></canvas>
+        <script>
+            const ctx = document.getElementById('fingerprint-test').getContext('2d');
+            ctx.font = '16px Arial';
+            ctx.fillText('VisionGuard Test', 10, 25);
+        </script>
+    </div>
+
+    <div class="test-case">
+        <h2>5. Open Redirects</h2>
+        <p>Test the URL parameter detection:</p>
+        <a href="?next=http://evil.com">Click to simulate redirect parameter in URL</a>
+    </div>
+
+    <div class="test-case">
+        <h2>6. Blacklist Check</h2>
+        <p>Simulate visiting a blacklisted site by changing the URL to end with <code>phish-test.com</code> (if testing locally with host mapping).</p>
+    </div>
+</body>
+</html>

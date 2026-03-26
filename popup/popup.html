@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=360" />
+  <title>VisionGuard</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-brand">
+      <img src="../assets/icon.png" alt="VisionGuard" class="header-icon" />
+      <h1>VisionGuard</h1>
+    </div>
+    <span class="header-tag">Security Analyzer</span>
+  </header>
+
+  <!-- Site Info -->
+  <section id="site-info" class="card">
+    <div class="site-name" id="site-name">Loading…</div>
+    <div class="site-url"  id="site-url"></div>
+  </section>
+
+  <!-- Score -->
+  <section id="score-section" class="card score-card">
+    <div class="score-ring" id="score-ring">
+      <svg viewBox="0 0 120 120">
+        <circle class="ring-bg" cx="60" cy="60" r="52" />
+        <circle class="ring-fg" id="ring-fg" cx="60" cy="60" r="52" />
+      </svg>
+      <div class="score-value" id="score-value">—</div>
+    </div>
+    <div class="score-label" id="score-label">Scanning…</div>
+  </section>
+
+  <!-- Issues -->
+  <section class="card">
+    <h2 class="section-title">Detected Issues</h2>
+    <ul id="issues-list" class="issues-list">
+      <li class="empty-state">No scan data yet.</li>
+    </ul>
+  </section>
+
+  <!-- Cookies -->
+  <section class="card">
+    <h2 class="section-title">Cookies Summary</h2>
+    <div class="cookies-grid" id="cookies-grid">
+      <div class="cookie-stat">
+        <span class="cookie-num" id="cookies-total">—</span>
+        <span class="cookie-label">Total</span>
+      </div>
+      <div class="cookie-stat">
+        <span class="cookie-num" id="cookies-third">—</span>
+        <span class="cookie-label">Third-Party</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download -->
+  <div class="download-options">
+    <button id="download-json" class="btn-download" disabled>JSON</button>
+    <button id="download-csv" class="btn-download" disabled>CSV</button>
+    <button id="download-btn" class="btn-download" disabled>TXT</button>
+  </div>
+
+  <footer class="footer">VisionGuard v1.0 — Stay safe online.</footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

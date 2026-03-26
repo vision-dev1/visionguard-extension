@@ -1,0 +1,283 @@
+/* ─── VisionGuard — Popup Stylesheet ─────────────────────────────────── */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 360px;
+  min-height: 420px;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: #f4f6f8;
+  color: #1e293b;
+  font-size: 13px;
+  overflow-x: hidden;
+}
+
+/* ── Header ──────────────────────────────────────────────────────────── */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  color: #f1f5f9;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+}
+
+.header h1 {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.header-tag {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.7;
+}
+
+/* ── Cards ───────────────────────────────────────────────────────────── */
+
+.card {
+  background: #fff;
+  margin: 10px 12px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+/* ── Site Info ────────────────────────────────────────────────────────── */
+
+.site-name {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 2px;
+  word-break: break-word;
+}
+
+.site-url {
+  font-size: 11px;
+  color: #64748b;
+  word-break: break-all;
+}
+
+/* ── Score Card ───────────────────────────────────────────────────────── */
+
+.score-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.score-ring {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+}
+
+.score-ring svg {
+  transform: rotate(-90deg);
+  width: 80px;
+  height: 80px;
+}
+
+.ring-bg {
+  fill: none;
+  stroke: #e2e8f0;
+  stroke-width: 10;
+}
+
+.ring-fg {
+  fill: none;
+  stroke: #22c55e;
+  stroke-width: 10;
+  stroke-linecap: round;
+  stroke-dasharray: 326.73;
+  stroke-dashoffset: 326.73;
+  transition: stroke-dashoffset 0.8s ease, stroke 0.4s ease;
+}
+
+.score-value {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.score-label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Color modifiers applied via JS */
+.grade-safe   .ring-fg { stroke: #22c55e; }
+.grade-safe   .score-value,
+.grade-safe   .score-label { color: #16a34a; }
+
+.grade-warning .ring-fg { stroke: #eab308; }
+.grade-warning .score-value,
+.grade-warning .score-label { color: #ca8a04; }
+
+.grade-danger  .ring-fg { stroke: #ef4444; }
+.grade-danger  .score-value,
+.grade-danger  .score-label { color: #dc2626; }
+
+/* ── Issues ───────────────────────────────────────────────────────────── */
+
+.section-title {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #94a3b8;
+  margin-bottom: 10px;
+}
+
+.issues-list {
+  list-style: none;
+  max-height: 170px;
+  overflow-y: auto;
+}
+
+.issues-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.issues-list li:last-child {
+  border-bottom: none;
+}
+
+.issue-badge {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.issue-badge.high   { background: #ef4444; }
+.issue-badge.medium { background: #eab308; }
+.issue-badge.low    { background: #64748b; }
+
+.issue-text strong {
+  display: block;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.issue-text span {
+  color: #64748b;
+}
+
+.empty-state {
+  color: #94a3b8;
+  text-align: center;
+  padding: 10px 0;
+  font-style: italic;
+}
+
+/* Scrollbar */
+.issues-list::-webkit-scrollbar { width: 4px; }
+.issues-list::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+/* ── Cookies ──────────────────────────────────────────────────────────── */
+
+.cookies-grid {
+  display: flex;
+  gap: 16px;
+}
+
+.cookie-stat {
+  flex: 1;
+  text-align: center;
+  padding: 8px 0;
+  background: #f8fafc;
+  border-radius: 8px;
+}
+
+.cookie-num {
+  display: block;
+  font-size: 22px;
+  font-weight: 700;
+  color: #334155;
+}
+
+.cookie-label {
+  font-size: 11px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.download-options {
+  display: flex;
+  gap: 8px;
+  margin: 10px 12px;
+}
+
+.btn-download {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  color: #f1f5f9;
+  border: none;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-download:hover:not(:disabled) {
+  opacity: 0.88;
+}
+
+.btn-download:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.btn-icon {
+  font-size: 14px;
+}
+
+/* ── Footer ──────────────────────────────────────────────────────────── */
+
+.footer {
+  text-align: center;
+  padding: 10px 0 14px;
+  font-size: 10px;
+  color: #94a3b8;
+}
