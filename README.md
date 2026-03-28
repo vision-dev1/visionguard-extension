@@ -2,8 +2,6 @@
 
 VisionGuard is a lightweight, real-time browser security analyzer designed to inspect websites for potential threats, misconfigurations, and privacy risks. It provides actionable insights and alerts to help users browse with confidence.
 
-![VisionGuard Logo](assets/icon.png)
-
 ## 🚀 Key Features
 
 - **Real-Time Scanning**: Automatically analyzes every page you visit for security headers and protocol safety.
@@ -45,5 +43,9 @@ We have included a test suite to verify all security detections:
 
 VisionGuard is designed with privacy in mind. It performs all analysis locally in your browser and does not send your browsing data to any external servers. Logs are kept minimal and do not expose sensitive user information.
 
+## Author 
+Vision KC<br>
+[Github](https://github.com/vision-dev1)<br>
+[Portfolio](https://visionkc.com.np)
+
 ---
-*Stay Safe Online with VisionGuard.*
